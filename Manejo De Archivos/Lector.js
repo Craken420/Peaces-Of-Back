@@ -13,6 +13,7 @@ async function getFiles(dir) {
     }))
     return files.reduce((a, f) => a.concat(f), [])
 }
+
 getFiles('Archivos')
     .then(files => {
         console.log(files) 
