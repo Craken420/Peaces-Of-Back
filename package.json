@@ -1,0 +1,24 @@
+{
+  "name": "peacesofcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Eval.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Craken420/Peaces-of-code.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Craken420/Peaces-of-code/issues"
+  },
+  "homepage": "https://github.com/Craken420/Peaces-of-code#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "n-readlines": "^1.0.0",
+    "path": "^0.12.7"
+  }
+}
