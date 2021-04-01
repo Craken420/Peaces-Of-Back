@@ -1,3 +1,5 @@
+
+
 //Monad - a sample implementation
 class Monad {
     constructor(val) {

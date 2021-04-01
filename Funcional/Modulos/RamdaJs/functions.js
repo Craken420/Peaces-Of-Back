@@ -4,8 +4,6 @@
 const t = R.always('Tee');
 t(); //=> 'Tee'
 
-
-
 /* defaultTo */
 const defaultTo42 = R.defaultTo(42);
 defaultTo42(null);  //=> 42
@@ -17,28 +15,11 @@ defaultTo42(parseInt('string')); //=> 42
 
 
 
-
-
-
-/**** GET ****/
-
-
-
-
-
-
-
-
-
-
 /**** ADD ****/
 
 const mapIndexed = R.addIndex(R.map);
 mapIndexed((val, idx) => idx + '-' + val, ['f', 'o', 'o', 'b', 'a', 'r']);
-//=> ['0-f', '1-o', '2-o', '3-b', '4-a', '5-r']
-
-
-
+    //=> ['0-f', '1-o', '2-o', '3-b', '4-a', '5-r']
 
 
 
@@ -50,8 +31,6 @@ R.ap([R.concat('tasty '), R.toUpper], ['pizza', 'salad']); //=> ["tasty pizza", 
 // when only two functions are passed
 R.ap(R.concat, R.toUpper)('Ramda') //=> 'RamdaRAMDA'
 
-
-
 /* ascend */
 const byAge = R.ascend(R.prop('age'));
 const people = [
@@ -60,19 +39,7 @@ const people = [
   { name: 'Mikhail', age: 62 },
 ];
 const peopleByYoungestFirst = R.sort(byAge, people);
-  //=> [{ name: 'Mikhail', age: 62 },{ name: 'Emma', age: 70 }, { name: 'Peter', age: 78 }]
-
-
-
-
-
-
-
-/**** DELETE ****/
-
-
-
-
+    //=> [{ name: 'Mikhail', age: 62 },{ name: 'Emma', age: 70 }, { name: 'Peter', age: 78 }]
 
 
 
@@ -92,8 +59,6 @@ takesTwoArgs(1, 2, 3); //=> [1, 2, undefined]
 
 
 
-
-
 /**** DIFF ****/
 
 /* comparator */
@@ -104,9 +69,7 @@ const people = [
   { name: 'Mikhail', age: 62 },
 ];
 const peopleByIncreasingAge = R.sort(byAge, people);
-  //=> [{ name: 'Mikhail', age: 62 },{ name: 'Emma', age: 70 }, { name: 'Peter', age: 78 }]
-
-
+    //=> [{ name: 'Mikhail', age: 62 },{ name: 'Emma', age: 70 }, { name: 'Peter', age: 78 }]
 
 
 
@@ -116,12 +79,6 @@ const peopleByIncreasingAge = R.sort(byAge, people);
 const t42 = R.applyTo(42);
 t42(R.identity); //=> 42
 t42(R.add(1)); //=> 43
-
-
-
-
-
-
 
 /* Call */
 R.call(R.add, 1, 2); //=> 3
@@ -134,13 +91,9 @@ const format = R.converge(R.call, [
                         ]);
 format({indent: 2, value: 'foo\nbar\nbaz\n'}); //=> '  foo\n  bar\n  baz\n'
 
-
-
 /* apply */
 const nums = [1, 2, 3, -99, 42, 6, 7];
 R.apply(Math.max, nums); //=> 42
-
-
 
 /* applySpec */
 const getMetrics = R.applySpec({
@@ -149,16 +102,10 @@ const getMetrics = R.applySpec({
 });
 getMetrics(2, 4); // => { sum: 6, nested: { mul: 8 } }
 
-
-
 /* applyTo */
 const t42 = R.applyTo(42);
 t42(R.identity); //=> 42
 t42(R.add(1)); //=> 43
-
-
-
-
 
 
 
@@ -170,15 +117,10 @@ const yellGreeting = R.compose(R.toUpper, classyGreeting);
 yellGreeting('James', 'Bond'); //=> "THE NAME'S BOND, JAMES BOND"
 R.compose(Math.abs, R.add(1), R.multiply(2))(-4) //=> 7
 
-
-
 /* composeWhileNotNil */
 const composeWhileNotNil = R.composeWith((f, res) => R.isNil(res) ? res : f(res));
 composeWhileNotNil([R.inc, R.prop('age')])({age: 1}) //=> 2
 composeWhileNotNil([R.inc, R.prop('age')])({}) //=> undefined
-
-
-
 
 /* Curry */
 const divide = R.curry((num, den) => num/den);
@@ -186,10 +128,6 @@ const divide = R.curry((num, den) => num/den);
 divide()(3) // NaN
 divide(R.__)(3) // function
 divide(R.__)(3)(21) // 7
-
-
-
-
 
 
 

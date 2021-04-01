@@ -14,7 +14,6 @@
 
 
 
-
 /* Función composeP */
 //En desuso desde v0.26.0
 const db = {
@@ -35,7 +34,6 @@ lookupUser('JOE').then(lookupFollowers)
 const followersForUser = R.composeP(lookupFollowers, lookupUser);
 followersForUser('JOE').then(followers => console.log('Followers:', followers))
 // Followers: ["STEVE","SUZY"]
-
 
 
 

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 /**** IF ****/
 
 /**** cond ****/
@@ -18,11 +12,7 @@ const fn = R.cond([
 
 
 
-
-
-
 /**** VERIFY ****/
-
 
 /* allPass */
 const isQueen = R.propEq('rank', 'Q');
@@ -31,8 +21,6 @@ const isQueenOfSpades = R.allPass([isQueen, isSpade]);
 isQueenOfSpades({rank: 'Q', suit: '♣︎'}); //=> false
 isQueenOfSpades({rank: 'Q', suit: '♠︎'}); //=> true
 
-
-
 /*** complement ***/
 const isNotNil = R.complement(R.isNil);
 isNil(null); //=> true
@@ -40,15 +28,11 @@ isNotNil(null); //=> false
 isNil(7); //=> false
 isNotNil(7); //=> true
 
-
-
 /* and */
 R.and(true, true); //=> true
 R.and(true, false); //=> false
 R.and(false, true); //=> false
 R.and(false, false); //=> false
-
-
 
 /* anyPass */
 const isClub = R.propEq('suit', '♣');

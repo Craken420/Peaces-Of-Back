@@ -1,3 +1,79 @@
+/*** Composición funcional ***/
+
+/*
+función f: entrada: A - salida: B
+función g: entrada: B - salida: C
+
+Nace la composición de f y g,
+   función fg: entrada: A - salida: C
+
+Respetar la transparencia referencial
+*/
+
+const text = `En un lugar de la Mancha, de cuyo nombre no quiero 
+acordarme, no ha mucho tiempo que vivía un hidalgo de 
+los de lanza en astillero, adarga antigua, rocín flaco y 
+galgo corredor.`;
+
+const explode = txt => txt.split(' ');
+
+const count = arr => arr.length;
+
+count(explode(text));
+
+const countWords = compose(count, explode);
+
+countWords(text);
+
+
+/** Simulacion de las composiciones en JS */
+
+function compose() {
+    
+       const args = arguments;
+       const start = args.length - 1;
+    //    console.log('----------------------------------------')
+    //    console.log('arguments: ',arguments)
+    //    console.log('args: ',args)
+    //    console.log('start: ',start)
+
+       return function () {
+
+           let i = start;
+           let result = args[start].apply(this, arguments);
+
+        //    console.log('i antes del while: ',i)
+        //    console.log('result antes del while: ',result)
+
+           while (i--) {
+
+                result = args[i].call(this, result);
+                // console.log('Op: args[i].call(this), result: ',args[i].call(this, result))
+                // console.log('i en el while: ',i)
+                // console.log('result en el while: ',result)
+          }
+
+        // console.log('result antes de retornar: ',result)
+        return result;
+    }
+}
+
+const countWords = compose(count, explode);
+
+countWords(text)
+// console.log('countWords: ',countWords(text))
+
+const countWords = R.compose(count, explode);
+
+countWords(text);
+
+/*** Métodos encadenados con RamdaJS ***/
+
+Function.prototype.compose = R.compose;
+
+const countWords = count.compose(explode);
+
+
 
 /*** Componer con RamdaJS */
 const R = require('ramda')
